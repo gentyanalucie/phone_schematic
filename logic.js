@@ -1,3 +1,10 @@
+let studentName = "";
+
+const studentNameInput = document.getElementById("studentNameInput");
+const startBtn = document.getElementById("startBtn");
+const studentNameDisplay = document.getElementById("studentNameDisplay");
+const studentSection = document.getElementById("studentSection");
+
 function elementShuffled(array) {
     const shuffled = array.slice();
     for (let i = shuffled.length - 1; i > 0; i--) {
@@ -67,5 +74,19 @@ function elementShuffled(array) {
     });
   }
   
+  startBtn.onclick = function () {
+  studentName = studentNameInput.value.trim();
+
+  if (studentName === "") {
+    alert("Masukkan nama dulu ya 😄");
+    return;
+  }
+
+  studentSection.style.display = "none";
+  studentNameDisplay.textContent = `👨‍🎓 Nama Siswa: ${studentName}`;
+  studentNameDisplay.style.fontWeight = "bold";
+
   loadQuestion(currentIndex);
+};
+
   
